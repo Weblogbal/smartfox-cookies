@@ -2,9 +2,9 @@
 /**
  * Plugin Name: Smartfox Cookies
  * Description: Injecte le code personnalisé tout en haut de head pour filtrer les cookies.
- * Version: 1.0.1
- * Author: Fabrice Simonet | Webglobal
- * Author URI: https://webglobal.fr
+ * Version: 1.0.2
+ * Author: Fabrice Simonet
+ * Author URI: https://web-global.ch
  * Plugin URI: https://github.com/Weblogbal/smartfox-cookies
  * Update URI: https://github.com/Weblogbal/smartfox-cookies
  * Text Domain: smartfox-cookies

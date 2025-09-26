@@ -1,7 +1,7 @@
 {
   "name": "Smartfox Cookies",
   "slug": "smartfox-cookies",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "download_url": "https://github.com/Weblogbal/smartfox-cookies/archive/refs/heads/main.zip",
   "details_url": "https://github.com/Weblogbal/smartfox-cookies",
   "author": "Fabrice Simonet | Webglobal",
@@ -11,6 +11,12 @@
   "requires_php": "7.4",
   "last_updated": "2024-09-26",
   "changelog": {
+    "1.0.2": {
+      "date": "2024-09-26",
+      "changes": [
+        "Mise à jour des métadonnées du plugin"
+      ]
+    },
     "1.0.1": {
       "date": "2024-09-26",
       "changes": [
