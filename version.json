@@ -35,9 +35,9 @@
     "2x": ""
   },
   "sections": {
-    "description": "Extension WordPress pour gérer le consentement aux cookies et l'intégration de Google Analytics GA4 avec support multilingue.",
-    "installation": "1. Téléchargez le plugin\n2. Activez-le dans votre tableau de bord WordPress\n3. Allez dans Réglages > Smartfox Cookies\n4. Configurez vos codes cookies et GA4",
-    "faq": "Q: Comment configurer les cookies?\nR: Rendez-vous dans Réglages > Smartfox Cookies et ajoutez vos codes d'embed.\n\nQ: Le plugin est-il compatible avec WPML?\nR: Oui, il supporte WPML et Polylang.",
-    "changelog": "Voir l'historique des versions dans le fichier changelog."
+    "description": "🍪 <strong>Smartfox Cookies</strong> simplifie la gestion du consentement aux cookies et l'intégration de Google Analytics GA4 sur votre site WordPress.\n\n✅ <strong>Conformité RGPD</strong> : Intégration avec GetTerms CMP pour le consentement aux cookies\n✅ <strong>Google Analytics GA4</strong> : Configuration simple et automatique\n✅ <strong>Multilingue</strong> : Support complet de Polylang et WPML\n✅ <strong>Interface intuitive</strong> : Configuration en quelques clics depuis l'admin WordPress\n✅ <strong>Mises à jour automatiques</strong> : Toujours à jour depuis GitHub\n\n<em>Idéal pour les sites multilingues nécessitant une gestion professionnelle des cookies et du tracking.</em>",
+    "installation": "📋 <strong>Installation simple :</strong>\n\n1. 📥 Téléchargez et activez le plugin\n2. ⚙️ Allez dans <strong>Réglages > Smartfox Cookies</strong>\n3. 🍪 Configurez vos codes cookies GetTerms CMP\n4. 📊 Ajoutez vos IDs Google Analytics GA4\n5. 🌍 Configurez pour chaque langue si multilingue\n\n✨ <strong>C'est prêt !</strong> Vos scripts sont automatiquement injectés dans le &lt;head&gt; de votre site.",
+    "faq": "❓ <strong>Questions fréquentes</strong>\n\n<strong>Q: Comment configurer les cookies ?</strong>\nR: Rendez-vous dans Réglages > Smartfox Cookies et ajoutez vos codes d'embed GetTerms CMP pour chaque langue.\n\n<strong>Q: Le plugin est-il compatible avec WPML/Polylang ?</strong>\nR: Oui ! Le plugin détecte automatiquement votre extension multilingue et permet une configuration par langue.\n\n<strong>Q: Où sont injectés les scripts ?</strong>\nR: Les scripts sont injectés tout en haut de la balise &lt;head&gt; pour une activation prioritaire.\n\n<strong>Q: Le plugin affecte-t-il les performances ?</strong>\nR: Non, le plugin est optimisé et n'ajoute aucune charge côté serveur une fois configuré.",
+    "changelog": "📋 Voir l'historique complet des versions dans le fichier CHANGELOG.md sur GitHub."
   }
 }

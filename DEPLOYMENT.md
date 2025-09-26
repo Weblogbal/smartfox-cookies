@@ -16,19 +16,19 @@ git pull origin main
 ### 2. Mise à jour des versions
 Modifiez les fichiers suivants avec le nouveau numéro de version :
 
-**a) `smartfox-cookies/smartfox-cookies.php`**
+**a) `smartfox-cookies.php`**
 ```php
-Version: 1.0.2  // Ligne 5
+Version: 1.0.3  // Ligne 5
 ```
 
 **b) `version.json`**
 ```json
 {
-  "version": "1.0.2",
-  "last_updated": "2024-09-27",
+  "version": "1.0.3",
+  "last_updated": "2025-09-26",
   "changelog": {
-    "1.0.2": {
-      "date": "2024-09-27",
+    "1.0.3": {
+      "date": "2025-09-26",
       "changes": [
         "Description des modifications..."
       ]
@@ -39,7 +39,7 @@ Version: 1.0.2  // Ligne 5
 
 **c) `CHANGELOG.md`**
 ```markdown
-## [1.0.2] - 2024-09-27
+## [1.0.3] - 2025-09-26
 ### Ajouté
 - Nouvelle fonctionnalité...
 ### Modifié  
@@ -57,7 +57,7 @@ Version: 1.0.2  // Ligne 5
 ### 4. Commit et push
 ```bash
 git add .
-git commit -m "Version 1.0.2 - Description des modifications"
+git commit -m "Version 1.0.3 - Description des modifications"
 git push origin main
 ```
 
@@ -67,7 +67,9 @@ git push origin main
    https://raw.githubusercontent.com/Weblogbal/smartfox-cookies/main/version.json
    ```
 
-2. **WordPress** : Les utilisateurs recevront automatiquement la notification de mise à jour dans les 12 heures (ou forcez avec `?force-check=1`)
+2. **WordPress** : Les utilisateurs recevront automatiquement la notification de mise à jour dans les 12 heures. Pour tester immédiatement, vous pouvez :
+   - Désactiver puis réactiver l'extension
+   - Ou utiliser le mode debug : ajoutez `?smartfox_debug=1` à l'URL d'admin pour forcer une vérification
 
 ## URLs importantes
 
@@ -77,6 +79,20 @@ git push origin main
 - **Changelog** : https://github.com/Weblogbal/smartfox-cookies/blob/main/CHANGELOG.md
 
 ## Dépannage
+
+### Mode Debug (pour les développeurs)
+
+Pour diagnostiquer les problèmes de mise à jour, utilisez le mode debug :
+```
+votre-site.com/wp-admin/plugins.php?smartfox_debug=1
+```
+
+Ceci affichera :
+- Version actuelle du plugin
+- Slug du plugin
+- URLs GitHub utilisées
+- Données récupérées depuis `version.json`
+- Erreurs éventuelles de connexion
 
 ### Les utilisateurs ne reçoivent pas les mises à jour
 
@@ -93,7 +109,13 @@ git push origin main
 
 ### Problèmes de cache
 
-Les utilisateurs peuvent forcer une vérification en ajoutant `?force-check=1` à l'URL d'administration, ou en désactivant/réactivant l'extension.
+Les utilisateurs peuvent forcer une vérification de plusieurs façons :
+- **Désactiver/Réactiver** l'extension depuis la page des plugins
+- **Mode debug** : Ajouter `?smartfox_debug=1` à l'URL d'admin pour voir les informations de debug et forcer une vérification
+- **Cache WordPress** : Vider les transients via un plugin de cache ou en ajoutant temporairement ce code dans `functions.php` :
+  ```php
+  delete_site_transient('update_plugins');
+  ```
 
 ## Checklist de publication
 

@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Smartfox Cookies
- * Description: Injecte le code personnalisé tout en haut de head pour filtrer les cookies.
+ * Description: Gestion intelligente du consentement aux cookies et intégration Google Analytics GA4 avec support multilingue (Polylang/WPML). Interface simple et conforme RGPD.
  * Version: 1.0.2
  * Author: Fabrice Simonet
  * Author URI: https://web-global.ch
@@ -57,6 +57,36 @@ class Smartfox_Cookies {
                 'Weblogbal', // Nom d'utilisateur GitHub
                 'smartfox-cookies' // Nom du repository GitHub
             );
+            
+            // Debug temporaire - à supprimer après résolution
+            if (isset($_GET['smartfox_debug']) && current_user_can('manage_options')) {
+                add_action('admin_notices', [$this, 'show_debug_info']);
+            }
+        }
+    }
+    
+    /**
+     * Fonction de debug temporaire
+     */
+    public function show_debug_info() {
+        if ($this->update_checker) {
+            $debug = $this->update_checker->get_debug_info();
+            $remote = $this->update_checker->force_check();
+            
+            echo '<div class="notice notice-info"><pre>';
+            echo "=== SMARTFOX DEBUG ===\n";
+            echo "Plugin Version: " . $debug['current_version'] . "\n";
+            echo "Plugin Slug: " . $debug['plugin_slug'] . "\n";
+            echo "GitHub URL: " . $debug['github_url'] . "\n";
+            echo "Version JSON URL: " . $debug['version_json_url'] . "\n";
+            echo "\nRemote Data:\n";
+            if ($remote) {
+                echo "Remote Version: " . $remote->version . "\n";
+                echo "Download URL: " . $remote->download_url . "\n";
+            } else {
+                echo "ERREUR: Impossible de récupérer les données distantes\n";
+            }
+            echo '</pre></div>';
         }
     }
 

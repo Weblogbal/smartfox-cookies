@@ -68,8 +68,13 @@ class Smartfox_Update_Checker {
         $remote_version = $this->get_remote_version();
         
         if ($remote_version && version_compare($this->plugin_version, $remote_version->version, '<')) {
+            $plugin_folder = dirname($this->plugin_slug);
+            if ($plugin_folder === '.') {
+                $plugin_folder = pathinfo($this->plugin_slug, PATHINFO_FILENAME);
+            }
+            
             $transient->response[$this->plugin_slug] = (object) [
-                'slug' => dirname($this->plugin_slug),
+                'slug' => $plugin_folder,
                 'plugin' => $this->plugin_slug,
                 'new_version' => $remote_version->version,
                 'url' => $remote_version->details_url,
@@ -127,7 +132,12 @@ class Smartfox_Update_Checker {
             return $result;
         }
         
-        if (!isset($args->slug) || $args->slug !== dirname($this->plugin_slug)) {
+        $plugin_folder = dirname($this->plugin_slug);
+        if ($plugin_folder === '.') {
+            $plugin_folder = pathinfo($this->plugin_slug, PATHINFO_FILENAME);
+        }
+        
+        if (!isset($args->slug) || $args->slug !== $plugin_folder) {
             return $result;
         }
         
