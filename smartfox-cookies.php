@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Smartfox Cookies
  * Description: Gestion intelligente du consentement aux cookies et intégration Google Analytics GA4 avec support multilingue (Polylang/WPML). Interface simple et conforme RGPD.
- * Version: 1.0.2
+ * Version: 1.0.3
  * Author: Fabrice Simonet
  * Author URI: https://web-global.ch
  * Plugin URI: https://github.com/Weblogbal/smartfox-cookies
