@@ -1,0 +1,56 @@
+# Fichiers ZIP générés
+main.zip
+*.zip
+
+# Fichiers temporaires WordPress
+*.tmp
+*.temp
+
+# Fichiers de sauvegarde
+*.bak
+*.backup
+*~
+
+# Fichiers système
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Fichiers d'éditeur
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Logs
+*.log
+error_log
+debug.log
+
+# Cache et fichiers temporaires PHP
+*.cache
+.phpunit.result.cache
+
+# Fichiers de configuration locale (si nécessaire)
+wp-config-local.php
+local-config.php
+
+# Node modules (si utilisé pour le développement)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Composer (si utilisé)
+vendor/
+composer.lock
+
+# Fichiers de test
+/tests/
+phpunit.xml
