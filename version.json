@@ -1,0 +1,37 @@
+{
+  "name": "Smartfox Cookies",
+  "slug": "smartfox-cookies",
+  "version": "1.0.1",
+  "download_url": "https://github.com/Weblogbal/smartfox-cookies/archive/refs/heads/main.zip",
+  "details_url": "https://github.com/Weblogbal/smartfox-cookies",
+  "author": "Fabrice Simonet | Webglobal",
+  "author_profile": "https://github.com/Weblogbal",
+  "requires": "5.0",
+  "tested": "6.3",
+  "requires_php": "7.4",
+  "last_updated": "2024-09-26",
+  "changelog": {
+    "1.0.1": {
+      "date": "2024-09-26",
+      "changes": [
+        "Version initiale avec gestion des cookies et Google Analytics",
+        "Support multilingue (Polylang/WPML)",
+        "Interface d'administration simple"
+      ]
+    }
+  },
+  "banners": {
+    "low": "",
+    "high": ""
+  },
+  "icons": {
+    "1x": "",
+    "2x": ""
+  },
+  "sections": {
+    "description": "Extension WordPress pour gérer le consentement aux cookies et l'intégration de Google Analytics GA4 avec support multilingue.",
+    "installation": "1. Téléchargez le plugin\n2. Activez-le dans votre tableau de bord WordPress\n3. Allez dans Réglages > Smartfox Cookies\n4. Configurez vos codes cookies et GA4",
+    "faq": "Q: Comment configurer les cookies?\nR: Rendez-vous dans Réglages > Smartfox Cookies et ajoutez vos codes d'embed.\n\nQ: Le plugin est-il compatible avec WPML?\nR: Oui, il supporte WPML et Polylang.",
+    "changelog": "Voir l'historique des versions dans le fichier changelog."
+  }
+}
