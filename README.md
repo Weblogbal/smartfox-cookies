@@ -1,116 +1,249 @@
 # Smartfox Cookies
 
-Extension WordPress pour la gestion du consentement aux cookies et l'intégration de Google Analytics GA4 avec support multilingue.
+🍪 **Extension WordPress professionnelle** pour la gestion intelligente du consentement aux cookies et l'intégration de Google Analytics GA4 avec support multilingue complet.
 
-## Description
+## 📋 Description
 
-Smartfox Cookies permet d'injecter facilement les scripts de consentement aux cookies et Google Analytics GA4 dans le `<head>` de votre site WordPress. L'extension supporte la gestion multilingue via Polylang ou WPML.
+**Smartfox Cookies** simplifie la mise en conformité RGPD de votre site WordPress en gérant automatiquement :
+- Le **consentement aux cookies** via GetTerms CMP
+- L'**intégration Google Analytics GA4** 
+- Le **support multilingue** (Polylang/WPML)
+- Les **mises à jour automatiques** depuis GitHub
 
-## Fonctionnalités
+L'extension injecte intelligemment les scripts dans le `<head>` de votre site avec une interface d'administration intuitive.
 
-- ✅ Gestion du consentement aux cookies via GetTerms CMP
-- ✅ Intégration Google Analytics GA4
-- ✅ Support multilingue (Polylang et WPML)
-- ✅ Interface d'administration intuitive
-- ✅ Mise à jour automatique depuis GitHub
-- ✅ Injection sécurisée des scripts
-- ✅ Nettoyage automatique lors de la désinstallation
+## ✨ Fonctionnalités
 
-## Installation
+### 🍪 **Gestion des cookies**
+- ✅ Intégration **GetTerms CMP** pour le consentement
+- ✅ **Configuration par langue** (multilingue)
+- ✅ **Injection automatique** dans le `<head>`
+- ✅ **Conformité RGPD** garantie
 
-1. Téléchargez l'extension depuis GitHub ou installez-la via l'admin WordPress
-2. Activez l'extension dans votre tableau de bord WordPress
-3. Allez dans **Réglages > Smartfox Cookies**
-4. Configurez vos codes cookies et IDs Google Analytics pour chaque langue
+### 📊 **Analytics**
+- ✅ **Google Analytics GA4** intégré
+- ✅ **Configuration par langue**
+- ✅ **Scripts optimisés** et conformes
 
-## Configuration
+### 🌐 **Multilingue**
+- ✅ **Support Polylang** natif
+- ✅ **Support WPML** natif  
+- ✅ **Détection automatique** de la langue
+- ✅ **Configuration séparée** par langue
 
-### Codes Cookies
-Entrez vos codes d'embed GetTerms CMP pour chaque langue :
+### 🔄 **Mises à jour**
+- ✅ **Système automatique** depuis GitHub
+- ✅ **Notifications WordPress** intégrées
+- ✅ **Vérification manuelle** disponible
+- ✅ **Interface de gestion** dans les réglages
+- ✅ **Cache intelligent** (12h)
+
+### 🎨 **Interface**
+- ✅ **Page de réglages** intuitive
+- ✅ **Informations de version** en temps réel
+- ✅ **Alertes de mise à jour** visuelles
+- ✅ **Liens directs** vers GitHub/Changelog
+- ✅ **Nettoyage automatique** à la désinstallation
+
+## 🚀 Installation
+
+### Installation automatique (recommandée)
+1. **Téléchargez** l'extension depuis GitHub
+2. **Activez** l'extension dans votre tableau de bord WordPress  
+3. **Allez** dans **Réglages > Smartfox Cookies**
+4. **Configurez** vos codes cookies et IDs Google Analytics
+5. **Vérifiez** les informations de version en bas de page
+
+### Installation manuelle
+1. **Clonez** ou téléchargez ce repository
+2. **Placez** le dossier dans `/wp-content/plugins/`  
+3. **Activez** depuis l'admin WordPress
+4. **Configurez** dans les réglages
+
+## ⚙️ Configuration
+
+### 🍪 **Codes Cookies (GetTerms CMP)**
 ```
-Format : aaaaa-bbbbb-ccccc-ddddd-eeeee/fr
-```
-
-### Google Analytics GA4
-Entrez vos IDs de mesure GA4 pour chaque langue :
-```
-Format : G-XXXXXXXXXX
-```
-
-## Système de mise à jour
-
-L'extension dispose d'un système de mise à jour automatique qui vérifie les nouvelles versions depuis ce repository GitHub.
-
-### Comment ça fonctionne
-
-1. **Vérification automatique** : L'extension vérifie toutes les 12 heures s'il y a une nouvelle version
-2. **Notification** : Si une mise à jour est disponible, vous verrez une notification dans l'admin WordPress
-3. **Mise à jour en un clic** : Cliquez sur "Mettre à jour" pour installer la dernière version
-4. **Cache intelligent** : Les vérifications sont mises en cache pour optimiser les performances
-
-### Fichiers de configuration
-
-- `version.json` : Contient les informations de version et les métadonnées
-- `CHANGELOG.md` : Historique des modifications
-- `includes/update-config.php` : Configuration du système de mise à jour
-
-### Mise à jour manuelle
-
-Si vous préférez mettre à jour manuellement :
-
-1. Téléchargez la dernière version depuis GitHub
-2. Désactivez l'ancienne extension
-3. Supprimez l'ancien dossier
-4. Installez la nouvelle version
-5. Réactivez l'extension
-
-## Structure du projet
-
-```
-smartfox-cookies/
-├── smartfox-cookies/
-│   ├── smartfox-cookies.php      # Fichier principal
-│   └── includes/
-│       ├── class-update-checker.php  # Système de mise à jour
-│       └── update-config.php          # Configuration
-├── version.json                   # Informations de version
-├── CHANGELOG.md                  # Historique des modifications
-└── README.md                     # Documentation
+Format requis : aaaaa-bbbbb-ccccc-ddddd-eeeee/fr
+Exemple : 12345-67890-abcde-fghij-klmno/fr
 ```
 
-## Pour les développeurs
+**Par langue :**
+- **Français** : `votre-code/fr`
+- **Anglais** : `votre-code/en` 
+- **Allemand** : `votre-code/de`
 
-### Publier une nouvelle version
+### 📊 **Google Analytics GA4**
+```
+Format requis : G-XXXXXXXXXX
+Exemple : G-ABC123DEF4
+```
 
-1. Mettez à jour le numéro de version dans :
-   - `smartfox-cookies.php` (header)
-   - `version.json`
-2. Ajoutez les modifications dans `CHANGELOG.md`
-3. Commitez et poussez vers GitHub
-4. Les utilisateurs recevront automatiquement la notification de mise à jour
+**Configuration par langue :**
+- Chaque langue peut avoir son **propre ID GA4**
+- **Détection automatique** de la langue active
+- **Injection optimisée** des scripts
 
-### Configuration GitHub
+## 🔄 Système de mise à jour avancé
 
-Assurez-vous que :
-- Le repository est public
-- Le fichier `version.json` est à la racine
-- Les releases suivent le versioning sémantique
+### 📡 **Fonctionnement automatique**
+1. **Vérification** toutes les 12 heures
+2. **Notification** dans l'admin WordPress
+3. **Mise à jour** en un clic depuis la page des plugins
+4. **Cache intelligent** pour les performances
 
-## Support
+### 🎛️ **Gestion depuis les réglages**  
+- **Version actuelle** affichée en permanence
+- **Détection temps réel** des mises à jour
+- **Bouton "Vérifier les mises à jour"** manuel
+- **Alerte visuelle** + redirection vers plugins
+- **Liens directs** GitHub et Changelog
 
-- **Issues** : [GitHub Issues](https://github.com/Weblogbal/smartfox-cookies/issues)
-- **Documentation** : [GitHub Repository](https://github.com/Weblogbal/smartfox-cookies)
+### 🛠️ **Pour les développeurs**
+- **Mode debug** : `?smartfox_debug=1` dans l'admin
+- **Informations techniques** complètes
+- **Diagnostic des erreurs** de connexion
+- **Cache management** intégré
 
-## Auteur
+### 📁 **Fichiers de configuration**
+
+- **`version.json`** : Métadonnées et informations de version pour GitHub
+- **`CHANGELOG.md`** : Historique détaillé des modifications
+- **`includes/update-config.php`** : Configuration centralisée du système de mise à jour
+- **`includes/class-update-checker.php`** : Classe principale de gestion des mises à jour
+
+### 🔧 **Dépannage**
+
+**Mise à jour non détectée :**
+1. **Désactiver/Réactiver** l'extension
+2. **Mode debug** : `?smartfox_debug=1` dans l'admin  
+3. **Vider le cache** WordPress
+4. **Vérifier** que le repository est public
+
+**Scripts non injectés :**
+1. **Vérifier** les codes cookies/GA4 dans les réglages
+2. **Contrôler** la détection de langue
+3. **Désactiver** le cache si activé
+4. **Consulter** les logs d'erreur PHP
+
+## 📁 Structure du projet (nouveau)
+
+```
+smartfox-cookies/                    # Repository GitHub
+├── smartfox-cookies.php            # ← Fichier principal à la racine
+├── includes/                       
+│   ├── class-update-checker.php    # ← Système de mise à jour
+│   └── update-config.php           # ← Configuration centralisée
+├── version.json                     # ← Métadonnées GitHub
+├── CHANGELOG.md                     # ← Historique des versions  
+├── DEPLOYMENT.md                    # ← Guide de déploiement
+├── README.md                        # ← Documentation
+└── .gitignore                       # ← Exclusions Git
+```
+
+> **⚠️ Structure simplifiée :** Le plugin est maintenant directement à la racine pour simplifier les mises à jour automatiques.
+
+## 👨‍💻 Pour les développeurs
+
+### 🚀 **Publier une nouvelle version**
+
+1. **Mise à jour des versions** :
+   ```php
+   // smartfox-cookies.php (ligne 5)
+   Version: 1.0.5
+   ```
+   ```json
+   // version.json  
+   "version": "1.0.5",
+   "last_updated": "2025-09-26"
+   ```
+
+2. **Changelog** :
+   ```markdown
+   // CHANGELOG.md
+   ## [1.0.5] - 2025-09-26
+   ### Ajouté
+   - Nouvelle fonctionnalité...
+   ```
+
+3. **Publication** :
+   ```bash
+   git add .
+   git commit -m "Version 1.0.5 - Description"
+   git push origin main
+   ```
+
+4. **Vérification** : Les utilisateurs recevront la notification automatiquement
+
+### ⚙️ **Configuration technique**
+
+**Prérequis :**
+- Repository GitHub **public**
+- Fichier `version.json` à la **racine**
+- Structure **plate** (fichiers à la racine)
+- **Versioning sémantique** (x.y.z)
+
+**URLs importantes :**
+- **Version JSON** : `https://raw.githubusercontent.com/Weblogbal/smartfox-cookies/main/version.json`
+- **Download ZIP** : `https://github.com/Weblogbal/smartfox-cookies/archive/refs/heads/main.zip`
+
+### 🔍 **Debug & Tests**
+
+```bash
+# Mode debug dans WordPress admin
+?smartfox_debug=1
+
+# Forcer la vérification
+Désactiver/Réactiver le plugin
+
+# Vider le cache WordPress
+delete_site_transient('update_plugins');
+```
+
+## 🆘 Support & Contribution
+
+### 📞 **Obtenir de l'aide**
+- **🐛 Issues** : [GitHub Issues](https://github.com/Weblogbal/smartfox-cookies/issues)
+- **📚 Documentation** : [Repository GitHub](https://github.com/Weblogbal/smartfox-cookies)
+- **📋 Changelog** : [CHANGELOG.md](CHANGELOG.md)
+
+### 🤝 **Contribuer**
+1. **Fork** le repository
+2. **Créez** une branche feature
+3. **Committez** vos modifications
+4. **Ouvrez** une Pull Request
+
+## 👤 Auteur
 
 **Fabrice Simonet | Webglobal**
-- Site web : [webglobal.fr](https://webglobal.fr)
-- GitHub : [@Weblogbal](https://github.com/Weblogbal)
+- 🌐 **Site web** : [web-global.ch](https://web-global.ch)
+- 💼 **GitHub** : [@Weblogbal](https://github.com/Weblogbal)
+- 🏢 **Entreprise** : Webglobal - Solutions digitales
 
-## Licence
+## 📄 Licence
 
-GPL v2 ou ultérieure
+**GPL v2 ou ultérieure** - Voir le fichier [LICENSE](LICENSE) pour plus de détails.
 
-## Changelog
+## 📈 Changelog & Versions
 
-Voir [CHANGELOG.md](CHANGELOG.md) pour l'historique complet des modifications.
+**Version actuelle :** `1.0.4` (2025-09-26)
+
+**Dernières améliorations :**
+- 🎯 Interface de gestion des mises à jour dans les réglages
+- 🔄 Vérification manuelle des mises à jour
+- 📊 Affichage des informations de version
+- 🎨 Description du plugin améliorée
+
+➡️ **Voir [CHANGELOG.md](CHANGELOG.md)** pour l'historique complet des modifications.
+
+---
+
+<div align="center">
+
+**🍪 Smartfox Cookies - Simplifiez votre conformité RGPD !**
+
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/Weblogbal/smartfox-cookies)
+[![WordPress](https://img.shields.io/badge/WordPress-Plugin-21759b?logo=wordpress)](https://wordpress.org)
+[![License](https://img.shields.io/badge/License-GPL--2.0-red?logo=gnu)](LICENSE)
+
+</div>
