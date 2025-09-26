@@ -2,6 +2,55 @@
 
 Toutes les modifications notables de ce projet seront documentées dans ce fichier.
 
+## [1.0.4] - 2025-09-26
+
+### Ajouté
+- **Section d'informations de version** dans la page de réglages
+- **Vérification automatique des mises à jour** depuis l'interface d'administration
+- **Bouton "Vérifier les mises à jour"** pour forcer une vérification manuelle
+- **Notifications visuelles** pour confirmer les actions (sauvegarde, vérification)
+- **Liens directs** vers GitHub et Changelog depuis la page de réglages
+- **Alerte visuelle** quand une mise à jour est disponible avec redirection vers les plugins
+
+### Modifié
+- **Description du plugin** plus professionnelle et attrayante
+- **Interface de réglages** enrichie avec section d'informations en bas de page
+- **Documentation `version.json`** avec descriptions enrichies et emojis
+- **Système de gestion des formulaires** pour supporter les actions multiples
+
+### Technique
+- Amélioration de la méthode `after_install()` pour la structure plate
+- Correction du slug du plugin dans la classe `UpdateChecker`
+- Ajout de méthodes `get_plugin_version()` et `render_version_info()`
+- Gestion des actions POST multiples dans `maybe_handle_form()`
+
+## [1.0.3] - 2025-09-26
+
+### Ajouté
+- **Réorganisation complète** : Plugin principal déplacé à la racine du repository
+- **Structure plate** pour simplifier les mises à jour automatiques
+- **Système de debug** temporaire avec `?smartfox_debug=1`
+
+### Modifié
+- **Classe UpdateChecker** simplifiée pour la nouvelle structure
+- **Méthode `after_install()`** optimisée pour l'installation directe
+- **Documentation** mise à jour pour refléter la nouvelle structure
+
+### Technique
+- Suppression de la gestion complexe des sous-dossiers
+- Correction des problèmes de slug dans les mises à jour
+- Amélioration de la détection des dossiers de plugin
+
+## [1.0.2] - 2025-09-26
+
+### Ajouté
+- **Tests du système de mise à jour** et corrections
+- **Amélioration de la description** du plugin
+
+### Corrigé
+- **Problèmes de slug** dans la classe UpdateChecker
+- **Gestion des erreurs** de téléchargement et d'installation
+
 ## [1.0.1] - 2024-09-26
 
 ### Ajouté
