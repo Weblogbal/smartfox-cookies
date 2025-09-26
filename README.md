@@ -141,8 +141,6 @@ smartfox-cookies/                    # Repository GitHub
 └── .gitignore                       # ← Exclusions Git
 ```
 
-> **⚠️ Structure simplifiée :** Le plugin est maintenant directement à la racine pour simplifier les mises à jour automatiques.
-
 ## 👨‍💻 Pour les développeurs
 
 ### 🚀 **Publier une nouvelle version**
