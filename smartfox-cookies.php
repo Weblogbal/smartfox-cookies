@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Smartfox Cookies
  * Description: Gestion intelligente du consentement aux cookies et intégration Google Analytics GA4 avec support multilingue (Polylang/WPML). Interface simple et conforme RGPD.
- * Version: 1.0.3
+ * Version: 1.0.4
  * Author: Fabrice Simonet
  * Author URI: https://web-global.ch
  * Plugin URI: https://github.com/Weblogbal/smartfox-cookies
@@ -113,6 +113,21 @@ class Smartfox_Cookies {
 
     /** Sauvegarde du formulaire */
     public function maybe_handle_form() {
+        // Gestion du bouton "Vérifier les mises à jour"
+        if (isset($_POST['smartfox_check_update']) && current_user_can(self::CAP)) {
+            if (isset($_POST[self::NONCE_KEY]) && wp_verify_nonce($_POST[self::NONCE_KEY], 'smartfox_cookies_save')) {
+                // Forcer la vérification des mises à jour
+                if ($this->update_checker) {
+                    $this->update_checker->force_check();
+                }
+                // Vider le cache des mises à jour WordPress
+                delete_site_transient('update_plugins');
+                
+                wp_redirect(add_query_arg(['page' => 'smartfox-cookies', 'checked' => '1'], admin_url('options-general.php')));
+                exit;
+            }
+        }
+        
         if ( ! isset($_POST['smartfox_cookies_submit']) ) return;
         if ( ! current_user_can(self::CAP) ) wp_die(__('Accès refusé.', 'smartfox-cookies'));
         if ( ! isset($_POST[self::NONCE_KEY]) || ! wp_verify_nonce($_POST[self::NONCE_KEY], 'smartfox_cookies_save') ) {
@@ -148,6 +163,10 @@ class Smartfox_Cookies {
             <?php if ( isset($_GET['updated']) ) : ?>
                 <div class="notice notice-success is-dismissible"><p><?php esc_html_e('Enregistré.', 'smartfox-cookies'); ?></p></div>
             <?php endif; ?>
+            
+            <?php if ( isset($_GET['checked']) ) : ?>
+                <div class="notice notice-info is-dismissible"><p><?php esc_html_e('Vérification des mises à jour effectuée.', 'smartfox-cookies'); ?></p></div>
+            <?php endif; ?>
 
             <form method="post" action="">
                 <?php wp_nonce_field('smartfox_cookies_save', self::NONCE_KEY); ?>
@@ -176,8 +195,86 @@ class Smartfox_Cookies {
                     <?php esc_html_e('Enregistrer', 'smartfox-cookies'); ?>
                 </button></p>
             </form>
+            
+            <?php $this->render_version_info(); ?>
         </div>
         <?php
+    }
+    
+    /**
+     * Affiche les informations de version et de mise à jour
+     */
+    private function render_version_info() {
+        $current_version = $this->get_plugin_version();
+        $update_available = false;
+        $remote_version = '';
+        $update_url = '';
+        
+        // Vérifier s'il y a une mise à jour disponible
+        if ($this->update_checker) {
+            $remote_data = $this->update_checker->force_check();
+            if ($remote_data && version_compare($current_version, $remote_data->version, '<')) {
+                $update_available = true;
+                $remote_version = $remote_data->version;
+                $update_url = admin_url('plugins.php');
+            }
+        }
+        
+        ?>
+        <div style="margin-top: 30px; padding: 20px; background: #f1f1f1; border-radius: 5px; border-left: 4px solid #0073aa;">
+            <h3 style="margin-top: 0;"><span class="dashicons dashicons-info"></span> <?php esc_html_e('Informations sur l\'extension', 'smartfox-cookies'); ?></h3>
+            
+            <p>
+                <strong><?php esc_html_e('Version actuelle :', 'smartfox-cookies'); ?></strong> 
+                <code><?php echo esc_html($current_version); ?></code>
+            </p>
+            
+            <?php if ($update_available) : ?>
+                <div class="notice notice-warning inline" style="margin: 15px 0; padding: 10px;">
+                    <p>
+                        <span class="dashicons dashicons-update"></span>
+                        <strong><?php esc_html_e('Mise à jour disponible !', 'smartfox-cookies'); ?></strong><br>
+                        <?php printf(__('Version %s disponible.', 'smartfox-cookies'), '<code>' . esc_html($remote_version) . '</code>'); ?>
+                        <a href="<?php echo esc_url($update_url); ?>" class="button button-secondary" style="margin-left: 10px;">
+                            <?php esc_html_e('Aller aux extensions', 'smartfox-cookies'); ?>
+                        </a>
+                    </p>
+                </div>
+            <?php else : ?>
+                <p style="color: #46b450;">
+                    <span class="dashicons dashicons-yes-alt"></span>
+                    <?php esc_html_e('Votre extension est à jour !', 'smartfox-cookies'); ?>
+                </p>
+            <?php endif; ?>
+            
+            <p>
+                <a href="<?php echo esc_url('https://github.com/Weblogbal/smartfox-cookies'); ?>" target="_blank" class="button button-link">
+                    <span class="dashicons dashicons-external"></span>
+                    <?php esc_html_e('Voir sur GitHub', 'smartfox-cookies'); ?>
+                </a>
+                <a href="<?php echo esc_url('https://github.com/Weblogbal/smartfox-cookies/blob/main/CHANGELOG.md'); ?>" target="_blank" class="button button-link">
+                    <span class="dashicons dashicons-media-document"></span>
+                    <?php esc_html_e('Changelog', 'smartfox-cookies'); ?>
+                </a>
+            </p>
+            
+            <form method="post" style="margin-top: 15px;">
+                <?php wp_nonce_field('smartfox_cookies_save', self::NONCE_KEY); ?>
+                <button type="submit" name="smartfox_check_update" class="button button-secondary">
+                    <span class="dashicons dashicons-update"></span>
+                    <?php esc_html_e('Vérifier les mises à jour', 'smartfox-cookies'); ?>
+                </button>
+            </form>
+        </div>
+        <?php
+    }
+    
+    /**
+     * Récupère la version du plugin
+     */
+    private function get_plugin_version() {
+        $plugin_data = get_file_data(__FILE__, ['Version' => 'Version'], 'plugin');
+        return $plugin_data['Version'];
     }
 
     /** Impression au plus haut dans wp_head */
