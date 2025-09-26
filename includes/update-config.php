@@ -20,7 +20,7 @@ return [
         'slug' => 'smartfox-cookies',
         'text_domain' => 'smartfox-cookies',
         'author' => 'Fabrice Simonet | Webglobal',
-        'author_uri' => 'https://web-global.ch',
+        'author_uri' => 'https://webglobal.fr',
         'plugin_uri' => 'https://github.com/Weblogbal/smartfox-cookies',
         'requires_wp' => '5.0',
         'tested_up_to' => '6.3',

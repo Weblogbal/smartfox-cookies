@@ -152,7 +152,7 @@ class Smartfox_Cookies {
 
     /** Impression au plus haut dans wp_head */
     public function print_head_html() {
-        if ( is_admin() ) return; // ne rien injecter dans l’admin
+        if ( is_admin() ) return; // ne rien injecter dans l'admin
         $scripts = get_option(self::OPTION_KEY, ['cookies' => [], 'ga' => []]);
         $current_lang = $this->get_current_language();
 
@@ -201,7 +201,9 @@ class Smartfox_Cookies {
     private function get_current_language() {
         if (function_exists('pll_current_language')) {
             return pll_current_language('slug');
-        } elseif (defined('ICL_LANGUAGE_CODE') && ICL_LANGUAGE_CODE) {
+        } elseif (function_exists('icl_get_current_language')) {
+            return icl_get_current_language();
+        } elseif (defined('ICL_LANGUAGE_CODE') && !empty(ICL_LANGUAGE_CODE)) {
             return ICL_LANGUAGE_CODE;
         } else {
             return 'fr'; // langue par défaut

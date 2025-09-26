@@ -2,7 +2,7 @@
 /**
  * Système de mise à jour automatique pour extensions WordPress depuis GitHub
  * @author Fabrice Simonet | Webglobal
- * @version 1.0.0
+ * @version 1.0.1
  */
 
 if ( ! defined('ABSPATH') ) exit;
@@ -166,12 +166,14 @@ class Smartfox_Update_Checker {
     }
     
     /**
-     * Actions après l'installation/mise à jour
+     * Actions après l'installation/mise à jour (simplifié pour structure plate)
      */
     public function after_install($response, $hook_extra, $result) {
         global $wp_filesystem;
         
         $install_directory = plugin_dir_path($this->plugin_file);
+        
+        // Avec la nouvelle structure plate, on déplace directement
         $wp_filesystem->move($result['destination'], $install_directory);
         $result['destination'] = $install_directory;
         
