@@ -109,7 +109,6 @@ Exemple : G-ABC123DEF4
 
 - **`version.json`** : Métadonnées et informations de version pour GitHub
 - **`CHANGELOG.md`** : Historique détaillé des modifications
-- **`includes/update-config.php`** : Configuration centralisée du système de mise à jour
 - **`includes/class-update-checker.php`** : Classe principale de gestion des mises à jour
 
 ### 🔧 **Dépannage**
@@ -132,8 +131,7 @@ Exemple : G-ABC123DEF4
 smartfox-cookies/                    # Repository GitHub
 ├── smartfox-cookies.php            # ← Fichier principal à la racine
 ├── includes/                       
-│   ├── class-update-checker.php    # ← Système de mise à jour
-│   └── update-config.php           # ← Configuration centralisée
+│   └── class-update-checker.php    # ← Système de mise à jour
 ├── version.json                     # ← Métadonnées GitHub
 ├── CHANGELOG.md                     # ← Historique des versions  
 ├── DEPLOYMENT.md                    # ← Guide de déploiement
